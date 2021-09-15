@@ -1,0 +1,27 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2020"><meta name="DC.rights.owner" content="(C) Copyright 2020"><meta name="DC.type" content="p"><meta name="DC.format" content="HTML5"><link rel="stylesheet" type="text/css" href="../Software%20Doc/API%20Markdown/out/html5/commonltr.css"><title>Overview</title></head><body><main role="main"><article role="article" aria-labelledby=""><p class="p">﻿# GetMyWeather API</p><p class="p">This document will provide reference for using the GetMyWeather API and is intended for web developers. GetMyWeather allows you to embed a weather forecast into your page. GetMyWeather results are unique in that they are considered a "micro-forecast" and can be customized for a very specific location.</p><article class="topic nested0" aria-labelledby="ariaid-title1" id="overview"><h1 class="title topictitle1" id="ariaid-title1">Overview</h1><div class="body"><p class="p">After initializing GetMyWeather, use the getWeather method for each forecast. The method getWeather returns an HTML snippet, which can be processed with Javascript and/or styled with CSS.</p><p class="p">GetMyWeather is supported by all modern browswers that support Javascript, which must be enabled to use GetMyWeather. The return package is static, and you must invoke getWeather again with new parameter values for an update.</p></div><article class="topic nested1" aria-labelledby="ariaid-title2" id="prerequisites"><h2 class="title topictitle2" id="ariaid-title2">Prerequisites</h2><div class="body"><p class="p">Include this empty element in your HTML page. Your browser will insert the getWeather return
+package here.</p><pre class="pre codeblock"><code>&lt;div id="forecast"&gt;&lt;/div&gt;</code></pre><p class="p">Additionally, GetMyWeather will need initialized before the method can be called. The API needs initialized just once for a web session. Use the following:</p><pre class="pre codeblock"><code>&lt;script type="text/javascript"&gt;
+var weatherForecast;
+function init() {
+weatherForecast =
+new getWeather(document.getElementById('forecast')}
+&lt;/script&gt;</code></pre></div></article></article><article class="topic nested0" aria-labelledby="ariaid-title3" id="parameters"><h1 class="title topictitle1" id="ariaid-title3">Parameters</h1><div class="body"></div><article class="topic nested1" aria-labelledby="ariaid-title4" id="path-parameters"><h2 class="title topictitle2" id="ariaid-title4">Path Parameters</h2><div class="body"><p class="p">| Name | Data Type | Min - Max | Required | Description |
+|--|--|--|--|--|
+| Latitude | Double | <span class="xref"></span> | Yes | Location based on latitude|
+| Longitude| Double | <span class="xref"></span> | Yes | Location based on longitude|
+| Specificity | Integer | 10 - 100,000 |  | Defines the area of the forecast as a circle around the <em class="ph i">location</em> |
+| Time | Integer |  |  | Time in the future for which the forecast is requested. Expressed in hours, decimals are allowed |</p></div></article></article><article class="topic nested0" aria-labelledby="ariaid-title5" id="request-format-and-results"><h1 class="title topictitle1" id="ariaid-title5">Request Format and Results</h1><div class="body"><p class="p">To call getWeather use:</p><pre class="pre codeblock"><code>&lt;script async defer
+src="https://www.getmyweather.com/getWeather?
+key=&lt;YOUR_KEY&gt;&amp;
+callback=init&amp;
+location=&lt;LATITUDE&gt;:&lt;LONGITUDE&gt;&amp;
+specificity=&lt;SPECIFICITY&gt;&amp;
+time=&lt;TIME&gt;"&gt;
+&lt;/script&gt;</code></pre><p class="p">Upon success, the getWeather function returns the following HTML structure (values are
+samples).</p><pre class="pre codeblock"><code>&lt;div class="forecast"&gt;
+&lt;div class="temperature"&gt;78&lt;/div&gt;
+&lt;div class="windspeed"&gt;15&lt;/div&gt;
+&lt;div class="chanceRain"&gt;30&lt;/div&gt;
+&lt;div class="trust"&gt;80&lt;/div&gt;
+&lt;/div&gt;</code></pre></div><article class="topic nested1" aria-labelledby="ariaid-title6" id="return-parameters"><h2 class="title topictitle2" id="ariaid-title6">Return Parameters</h2><div class="body"><table class="table"><caption></caption><colgroup><col><col><col><col></colgroup><thead class="thead"><tr class="row"><th class="entry" id="return-parameters__entry__1">Name</th><th class="entry" id="return-parameters__entry__2">Data Type</th><th class="entry" id="return-parameters__entry__3">Min - Max</th><th class="entry" id="return-parameters__entry__4">Description</th></tr></thead><tbody class="tbody"><tr class="row"><td class="entry" headers="return-parameters__entry__1 ">Trust</td><td class="entry" headers="return-parameters__entry__2 ">Integer</td><td class="entry" headers="return-parameters__entry__3 ">1 - 100</td><td class="entry" headers="return-parameters__entry__4 ">Represents the reliability of the forecast (1 is very unreliable; 100 is absolutely reliable</td></tr></tbody></table></div></article></article><article class="topic nested0" aria-labelledby="ariaid-title7" id="error-conditions"><h1 class="title topictitle1" id="ariaid-title7">Error Conditions</h1><div class="body"><ul class="ul"><li class="li"><p class="p">Invalid Key</p></li><li class="li"><p class="p">Invalid parameterformat</p></li><li class="li"><p class="p">Parameter out of range</p></li><li class="li"><p class="p">Server unavailable</p></li></ul></div></article></article></main></body></html>
