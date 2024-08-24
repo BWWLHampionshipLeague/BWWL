@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Football League History</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Fantasy Football League History</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Teams</button>
+            <div class="dropdown-content">
+                <a href="team1.html">Steve</a>
+                <a href="team2.html">Team 2</a>
+                <a href="team3.html">Team 3</a>
+                <a href="team4.html">Team 4</a>
+                <a href="team5.html">Team 5</a>
+                <a href="team6.html">Team 6</a>
+                <a href="team7.html">Team 7</a>
+                <a href="team8.html">Team 8</a>
+                <a href="team9.html">Team 9</a>
+                <a href="team10.html">Team 10</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Current Standings</h2>
+        <table id="standingsTable" data-sortOrder="asc">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Rank</th>
+                    <th onclick="sortTable(1)">Team Name</th>
+                    <th onclick="sortTable(2)">Manager</th>
+                    <th onclick="sortTable(3)">Wins</th>
+                    <th onclick="sortTable(4)">Losses</th>
+                    <th onclick="sortTable(5)">Ties</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample Data -->
+                <tr>
+                    <td>1</td>
+                    <td><a href="team1.html">Alpha Chad Squad of Studs</a></td>
+                    <td>Steb</td>
+                    <td>10</td>
+                    <td>3</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="team2.html">Team 2</a></td>
+                    <td>Manager 2</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>0</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <div class="overall-records">
+            <h2>Overall Records</h2>
+            <table id="recordsTable" data-sortOrder="asc">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Team Name</th>
+                        <th onclick="sortTable(1)">Wins</th>
+                        <th onclick="sortTable(2)">Losses</th>
+                        <th onclick="sortTable(3)">Ties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Data -->
+                    <tr>
+                        <td><a href="team1.html">Team 1</a></td>
+                        <td>60</td>
+                        <td>20</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><a href="team2.html">Team 2</a></td>
+                        <td>55</td>
+                        <td>25</td>
+                        <td>2</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
