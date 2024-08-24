@@ -4,7 +4,7 @@ function sortTable(columnIndex) {
     const rows = Array.from(tbody.querySelectorAll('tr'));  // Get all rows within tbody
 
     // Determine the current sort order (ascending or descending)
-    const isAscending = table.dataset.sortOrder === 'asc';
+    const isAscending = table.dataset.sortOrder === 'desc';
     table.dataset.sortOrder = isAscending ? 'desc' : 'asc';
 
     const sortedRows = rows.sort((a, b) => {
