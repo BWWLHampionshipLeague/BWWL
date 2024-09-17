@@ -10,7 +10,7 @@
 
     <!-- Inline CSS to optimize for mobile devices -->
     <style>
-        /* Make sure the container takes full width on smaller screens */
+        /* Ensure the container takes full width on smaller screens */
         .container {
             width: 100%;
             padding: 10px;
@@ -18,17 +18,21 @@
             margin: 0 auto;
         }
 
-        /* Style the table to be scrollable on small screens */
+        /* General table styling */
         table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        table th, table td {
+        table th,
+        table td {
             padding: 10px;
             text-align: left;
             border-bottom: 1px solid #ddd;
             font-size: 14px;
+            white-space: nowrap; /* Prevents text from wrapping */
+            overflow: hidden;    /* Ensures that text that overflows is hidden */
+            text-overflow: ellipsis; /* Adds ... to truncated text */
         }
 
         table th {
@@ -61,15 +65,37 @@
             }
 
             /* Wrap table in a scrollable div on small screens */
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
+            .table-wrapper {
+                width: 100%;
+                overflow-x: auto; /* Enable horizontal scrolling */
             }
 
-            th, td {
-                display: inline-block;
-                width: 120px; /* Adjust as needed for readability */
+            table th,
+            table td {
+                font-size: 12px; /* Smaller font for mobile */
+                padding: 8px; /* Less padding for mobile */
+                white-space: normal; /* Allow text to wrap */
+            }
+
+            /* Adjust specific column widths to fit better */
+            th:nth-child(1),
+            td:nth-child(1) {
+                width: 50px; /* Rank column */
+            }
+
+            th:nth-child(2),
+            td:nth-child(2) {
+                width: 200px; /* Team Name column */
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+                width: 150px; /* Manager column */
+            }
+
+            th:nth-child(4),
+            td:nth-child(4) {
+                width: 80px; /* Record column */
             }
         }
 
@@ -95,108 +121,112 @@
 
     <div class="container">
         <h2>Current Rankings</h2>
-        <table id="standingsTable" data-sortOrder="desc">
-            <thead>
-                <tr>
-                    <th onclick="sortTable(0)">Rank</th>
-                    <th onclick="sortTable(1)">Team Name</th>
-                    <th onclick="sortTable(2)">Manager</th>
-                    <th onclick="sortTable(3)">Record</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Sample Data -->
-                <tr>
-                    <td>8</td>
-                    <td>Low T Higgins Curse Team</td>
-                    <td>Steb</td>
-                    <td>0-2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Ceasares Infinitum Imperium</td>
-                    <td>Conor</td>
-                    <td>1-1</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Getting the Mostert for my Belt</td>
-                    <td>Walhuf</td>
-                    <td>0-2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Django Achaned</td>
-                    <td>PJ</td>
-                    <td>2-0</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Taylor's Version</td>
-                    <td>Sean C</td>
-                    <td>2-0</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>To Infinity and Bijan</td>
-                    <td>Garrett</td>
-                    <td>1-1</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>WE GOT GUYS</td>
-                    <td>Kevin</td>
-                    <td>1-1</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Benchwarmers</td>
-                    <td>Luke</td>
-                    <td>0-2</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Friend Shipleys</td>
-                    <td>Paul</td>
-                    <td>1-1</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Those Huffin Hobbits</td>
-                    <td>Sean B</td>
-                    <td>1-1</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-wrapper">
+            <table id="standingsTable" data-sortOrder="desc">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Rank</th>
+                        <th>Team Name</th>
+                        <th>Manager</th>
+                        <th>Record</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Data -->
+                    <tr>
+                        <td>8</td>
+                        <td>Low T Higgins Curse Team</td>
+                        <td>Steb</td>
+                        <td>0-2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Ceasares Infinitum Imperium</td>
+                        <td>Conor</td>
+                        <td>1-1</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Getting the Mostert for my Belt</td>
+                        <td>Walhuf</td>
+                        <td>0-2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Django Achaned</td>
+                        <td>PJ</td>
+                        <td>2-0</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Taylor's Version</td>
+                        <td>Sean C</td>
+                        <td>2-0</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>To Infinity and Bijan</td>
+                        <td>Garrett</td>
+                        <td>1-1</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>WE GOT GUYS</td>
+                        <td>Kevin</td>
+                        <td>1-1</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Benchwarmers</td>
+                        <td>Luke</td>
+                        <td>0-2</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Friend Shipleys</td>
+                        <td>Paul</td>
+                        <td>1-1</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Those Huffin Hobbits</td>
+                        <td>Sean B</td>
+                        <td>1-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="container">
         <h2>Overall Records [Cuming Soon LOL]</h2>
-        <table id="recordsTable" data-sortOrder="asc">
-            <thead>
-                <tr>
-                    <th onclick="sortTable(0)">Team Name</th>
-                    <th onclick="sortTable(1)">Wins</th>
-                    <th onclick="sortTable(2)">Losses</th>
-                    <th onclick="sortTable(3)">Hampionships</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Sample Data -->
-                <tr>
-                    <td><a href="steb.html">Steb</a></td>
-                    <td>70</td>
-                    <td>63</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td><a href="team2.html">Team 2</a></td>
-                    <td>55</td>
-                    <td>25</td>
-                    <td>2</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-wrapper">
+            <table id="recordsTable" data-sortOrder="asc">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Team Name</th>
+                        <th onclick="sortTable(1)">Wins</th>
+                        <th onclick="sortTable(2)">Losses</th>
+                        <th onclick="sortTable(3)">Hampionships</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Data -->
+                    <tr>
+                        <td><a href="steb.html">Steb</a></td>
+                        <td>70</td>
+                        <td>63</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><a href="team2.html">Team 2</a></td>
+                        <td>55</td>
+                        <td>25</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 
