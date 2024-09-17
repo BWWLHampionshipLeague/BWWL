@@ -5,7 +5,7 @@ function sortTable(columnIndex) {
 
     // Determine the current sort order (ascending or descending)
     const isAscending = table.dataset.sortOrder === 'desc';
-    table.dataset.sortOrder = isAscending ? 'desc' : 'asc';
+    table.dataset.sortOrder = isAscending ? 'asc' : 'desc';
 
     const sortedRows = rows.sort((a, b) => {
         const aText = a.children[columnIndex].textContent.trim();
