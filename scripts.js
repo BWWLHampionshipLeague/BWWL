@@ -4,8 +4,8 @@ function sortTable(columnIndex) {
     const rows = Array.from(tbody.querySelectorAll('tr'));  // Get all rows within tbody
 
     // Determine the current sort order (ascending or descending)
-    const isAscending = table.dataset.sortOrder === 'desc';
-    table.dataset.sortOrder = isAscending ? 'asc' : 'desc';
+    const isAscending = table.dataset.sortOrder === 'asc';
+    table.dataset.sortOrder = isAscending ? 'desc' : 'asc';  // Toggle sort order
 
     const sortedRows = rows.sort((a, b) => {
         const aText = a.children[columnIndex].textContent.trim();
@@ -13,9 +13,9 @@ function sortTable(columnIndex) {
 
         // Sort numerically or alphabetically based on content
         if (!isNaN(aText) && !isNaN(bText)) {
-            return isAscending ? aText - bText : bText - aText;
+            return isAscending ? bText - aText : aText - bText;  // Sort numerically in descending order by default
         } else {
-            return isAscending ? aText.localeCompare(bText) : bText.localeCompare(aText);
+            return isAscending ? bText.localeCompare(aText) : aText.localeCompare(bText);  // Sort alphabetically
         }
     });
 
@@ -30,3 +30,10 @@ function sortTable(columnIndex) {
         });
     }
 }
+
+// On page load, apply descending sorting by default to the first column
+window.onload = function() {
+    const defaultTable = document.getElementById('standingsTable');  // Assuming this is the table you want to sort
+    defaultTable.dataset.sortOrder = 'desc';  // Set default order to descending
+    sortTable(0);  // Sort by the first column (Rank) in descending order by default
+};
