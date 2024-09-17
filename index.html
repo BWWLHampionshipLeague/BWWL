@@ -1,21 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BWWL Hampionship Football League</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
+
+    <!-- Inline CSS to optimize for mobile devices -->
+    <style>
+        /* Make sure the container takes full width on smaller screens */
+        .container {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        /* Style the table to be scrollable on small screens */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        table th {
+            cursor: pointer;
+        }
+
+        /* Font size adjustments for smaller screens */
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 5px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.2em;
+                text-align: center;
+            }
+
+            /* Make the audio controls more compact */
+            audio {
+                width: 100%;
+            }
+
+            /* Wrap table in a scrollable div on small screens */
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            th, td {
+                display: inline-block;
+                width: 150px; /* Adjust as needed for readability */
+            }
+        }
+
+        /* Responsive Audio Player */
+        audio {
+            width: 100%;
+            height: 40px; /* Adjust height as needed */
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>BWWL Hampionship Football League</h1>
     </header>
+
     <div class="container">
         <h2>This Week's Episode</h2>
+        <!-- Ensure audio player stretches across the screen -->
         <audio controls src="/audio-file.mp3"></audio>
-            <a href="kennament.github.io/audio-file.mp3"></a>
+        <a href="kennament.github.io/audio-file.mp3"></a>
     </div>
+
     <div class="container">
         <h2>Current Rankings</h2>
         <table id="standingsTable" data-sortOrder="desc">
@@ -88,51 +165,50 @@
                 </tr>
                 <tr>
                     <td>7</td>
-                    <td>Friend Shipleys</a></td>
+                    <td>Friend Shipleys</td>
                     <td>Paul</td>
                     <td>1</td>
                     <td>1</td>
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td>Those Huffin Hobbits</a></td>
+                    <td>Those Huffin Hobbits</td>
                     <td>Sean B</td>
                     <td>1</td>
                     <td>1</td>
                 </tr>
-                <!-- Add more rows as needed -->
             </tbody>
         </table>
+    </div>
 
-        <div class="overall-records">
-            <h2>Overall Records [Cuming Soon LOL]</h2>
-            <table id="recordsTable" data-sortOrder="asc">
-                <thead>
-                    <tr>
-                        <th onclick="sortTable(0)">Team Name</th>
-                        <th onclick="sortTable(1)">Wins</th>
-                        <th onclick="sortTable(2)">Losses</th>
-                        <th onclick="sortTable(3)">Hampionships</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Sample Data -->
-                    <tr>
-                        <td><a href="steb.html">steb</a></td>
-                        <td>70</td>
-                        <td>63</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td><a href="team2.html">Team 2</a></td>
-                        <td>55</td>
-                        <td>25</td>
-                        <td>2</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
+    <div class="container">
+        <h2>Overall Records [Cuming Soon LOL]</h2>
+        <table id="recordsTable" data-sortOrder="asc">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Team Name</th>
+                    <th onclick="sortTable(1)">Wins</th>
+                    <th onclick="sortTable(2)">Losses</th>
+                    <th onclick="sortTable(3)">Hampionships</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample Data -->
+                <tr>
+                    <td><a href="steb.html">Steb</a></td>
+                    <td>70</td>
+                    <td>63</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td><a href="team2.html">Team 2</a></td>
+                    <td>55</td>
+                    <td>25</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
+
 </html>
